@@ -35,11 +35,13 @@ public class ScoreController : MonoBehaviour
 
     public void PlayAgain()
     {
+        GameObject.FindGameObjectWithTag("pns").GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("gameplay");
     }
 
     public void BackToMenu()
     {
+        GameObject.FindGameObjectWithTag("pns").GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("mainmenu");
     }
 }

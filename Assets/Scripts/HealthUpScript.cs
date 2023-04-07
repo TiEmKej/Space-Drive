@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidController : MonoBehaviour
+public class HealthUpScript : MonoBehaviour
 {
     GameController gameController;
 
@@ -14,20 +14,17 @@ public class AsteroidController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Destroyer")
+        if (collision.tag == "PlayerShip" && gameController.playerHealth < 3)
         {
-            gameController.AddScore();
-        }
-        else if(collision.tag == "PlayerShip")
-        {
-            gameController.GetDamage();
+            gameController.PlayPowerUp();
+            gameController.HealthUp();
             Destroy(this.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Destroyer")
+        if (collision.tag == "Destroyer")
         {
             Destroy(this.gameObject);
         }

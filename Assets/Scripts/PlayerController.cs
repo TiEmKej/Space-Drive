@@ -15,12 +15,6 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Move(InputAction.CallbackContext context)
     { 
         Vector2 inputValue = (context.ReadValue<Vector2>());

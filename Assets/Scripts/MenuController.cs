@@ -7,7 +7,16 @@ public class MenuController : MonoBehaviour
 {
     public void Play()
     {
-        Debug.Log("Loading gameplay...");
-        SceneManager.LoadScene("gameplay");
+        SceneManager.LoadScene(1);
+    }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Info()
+    {
+        SceneManager.LoadScene(4);
     }
 }
