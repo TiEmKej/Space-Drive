@@ -13,15 +13,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Touch",
-                    "type": "Value",
-                    "id": "5f70040a-b1a4-4788-b466-9c73f335d8a0",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "Press(pressPoint=0.1,behavior=2)",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -156,72 +147,6 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "TouchScreen",
-                    "id": "aae78a8f-3b27-41bf-a355-22d9b5c7b975",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "82f9940a-5d4c-4abe-a217-c1dda38fa05c",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "45706a21-30e7-4930-ae15-74653653a8a7",
-                    "path": "<Touchscreen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Mouse",
-                    "id": "36edb662-e090-4add-9852-cddfd4e9794d",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "ed5a2be2-a12d-4a45-954f-2425fe5c931b",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "3afd8af1-82f4-4cde-9f2f-3dede66eb849",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         },
