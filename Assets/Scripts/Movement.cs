@@ -24,40 +24,25 @@ public class Movement : MonoBehaviour
     }
 
     public void TouchInput(){
+        //Get all finger touches
         var fingers = UnityEngine.InputSystem.EnhancedTouch.Touch.activeFingers;
-        var lastTouch = fingers[fingers.Count-1].lastTouch;
-        if(!lastTouch.isInProgress){
+        //If there is no touch set veolocity to 0
+        if(fingers.Count == 0){
             playerrb.velocity = new Vector2(0, 0);
             return;
         }
+        //Get last touch
+        var lastTouch = fingers[fingers.Count-1].lastTouch;
+        //Get touch position
         Vector2 position = lastTouch.screenPosition;
+        //Make the position correct - left side of screen will have negative x
         position -= new Vector2(Screen.width/2,0);
         if (position.x > 0){
             //If on the right side of screen, move toward positive x
-            playerrb.velocity = new Vector2(1f * movementSpeed, 0);
+            playerrb.velocity = new Vector2(movementSpeed, 0);
         }else{
             //Else move toward negative x
-            playerrb.velocity = new Vector2(-1f * movementSpeed, 0);
+            playerrb.velocity = new Vector2(-movementSpeed, 0);
         }
     }
-
-    // public void MoveTouch(InputAction.CallbackContext context)
-    // {
-    //     Vector2 inputValue = context.ReadValue<Vector2>();
-    //     if (context.phase == InputActionPhase.Performed){
-    //         //If touch position is 0 (or not present), stop the player
-    //         playerrb.velocity = new Vector2(0, 0);
-    //         return;
-    //     }
-    //     //Check touch position
-    //     inputValue -= new Vector2(Screen.width/2,0);
-    //     if (inputValue.x > 0){
-    //         //If on the right side of screen, move toward positive x
-    //         playerrb.velocity = new Vector2(1f * movementSpeed, 0);
-    //     }else{
-    //         //Else move toward negative x
-    //         playerrb.velocity = new Vector2(-1f * movementSpeed, 0);
-    //     }
-    // }
-    
 }
