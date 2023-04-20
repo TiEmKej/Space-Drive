@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6354975241915162997}
   - component: {fileID: 3377729570467202324}
+  - component: {fileID: 5693687473445133813}
   - component: {fileID: 930733627768025924}
   - component: {fileID: -563665207095073686}
-  - component: {fileID: 3860322523736125094}
+  - component: {fileID: -1451751218225339950}
   m_Layer: 8
   m_Name: EnemyObject
-  m_TagString: Untagged
+  m_TagString: enemyobject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3377729570467202324
 MonoBehaviour:
@@ -52,6 +53,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 490df95a6fe0845b8b81bc42cf55f442, type: 3}
   - {fileID: 21300000, guid: d4594d8d919b2421f90fa05bfc68eb70, type: 3}
   - {fileID: 21300000, guid: e35daf19636f6479cab0e7c6af7b1b2a, type: 3}
+--- !u!114 &5693687473445133813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081906465945186177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9673541a3e26b46abfd232c946d776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &930733627768025924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -131,8 +144,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!66 &3860322523736125094
-CompositeCollider2D:
+--- !u!60 &-1451751218225339950
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,13 +177,20 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 8081906465945186177}
