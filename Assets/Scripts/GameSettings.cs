@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameControllerScript : MonoBehaviour
+public class GameSettings : MonoBehaviour
 {
     void Awake()
     {
-        ScoreController[] objs = GameObject.FindObjectsOfType<ScoreController>();
+        GameSettings[] objs = GameObject.FindObjectsOfType<GameSettings>();
 
         if (objs.Length > 1)
         {
