@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GameControllerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    void Awake()
+    {
+        ScoreController[] objs = GameObject.FindObjectsOfType<ScoreController>();
+
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
-        Application.targetFrameRate = 60;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.targetFrameRate = 120;
     }
 }

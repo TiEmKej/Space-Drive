@@ -5,18 +5,10 @@ using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
-    [SerializeField] TMP_Text scoreDisplay;
+    UIUpdater uIUpdater;
     int score = 0;
-    void Awake()
-    {
-        ScoreController[] objs = GameObject.FindObjectsOfType<ScoreController>();
-
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-
-        DontDestroyOnLoad(this.gameObject);
+    private void Start() {
+        uIUpdater = FindObjectOfType<UIUpdater>();
     }
     public int GetScore(){
         return score;
@@ -24,10 +16,6 @@ public class ScoreController : MonoBehaviour
 
     public void ChangeScore(int value){
         score += value;
-        UpdateScore();
-    }
-
-    public void UpdateScore(){
-        scoreDisplay.text = score.ToString();
+        uIUpdater.ScoreUpdate(score);
     }
 }

@@ -6,9 +6,11 @@ public class Health : MonoBehaviour
 {
     int health = 3;
     UIUpdater uIUpdater;
+    ScoreController scoreController;
     // Start is called before the first frame update
     void Start()
     {
+        scoreController = FindObjectOfType<ScoreController>();
         uIUpdater = FindObjectOfType<UIUpdater>();
         uIUpdater.HPUpdate(health);
     }
@@ -24,7 +26,8 @@ public class Health : MonoBehaviour
             health--;
             uIUpdater.HPUpdate(health);
         }
-        if(health == 0){
+        if(health <= 0){
+            PlayerPrefs.SetInt("CurrentScore",scoreController.GetScore());
             Destroy(this.gameObject);
         }
     }
