@@ -22,7 +22,7 @@ TagManager:
   - Spawner
   - Destroyer
   - Particles
-  - 
+  - UIThings
   - 
   - 
   - 
@@ -44,4 +44,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 109722175
+    locked: 0
+  - name: UI
+    uniqueID: 705097149
+    locked: 0
+  - name: EnemyObject
+    uniqueID: 1397926775
+    locked: 0
+  - name: PowerUps
+    uniqueID: 3507574535
+    locked: 0
+  - name: Particle
+    uniqueID: 290022135
     locked: 0

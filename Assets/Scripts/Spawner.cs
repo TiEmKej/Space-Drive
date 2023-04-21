@@ -13,9 +13,10 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnAsteroid(){
         while(true){
             Debug.Log("Asteroid spawned");
-            float time = 1f;
+            float time = 3f;
             GameObject newEnemyObject = Instantiate(enemyObject);
             float newX = Random.Range(-4f, 4f);
+            newEnemyObject.transform.parent = this.gameObject.transform;
             newEnemyObject.transform.Translate(newX,10f,0f);
             Rigidbody2D newEnemyObjectRb = newEnemyObject.GetComponent<Rigidbody2D>();
             newEnemyObjectRb.velocity = new Vector2(0f,-3f);
