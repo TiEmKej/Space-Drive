@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LostScreenController : MonoBehaviour
@@ -18,5 +19,9 @@ public class LostScreenController : MonoBehaviour
             scoreText.text = "Score: "+currentScore+"\nHighscore: "+highScore;
         }
         PlayerPrefs.SetInt("CurrentScore", 0);
+    }
+
+    public void PlayAgain(){
+        SceneManager.LoadScene("Gameplay");
     }
 }
