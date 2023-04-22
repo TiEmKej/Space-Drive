@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 1859498587}
   - component: {fileID: 1859498586}
   m_Layer: 0
-  m_Name: ScoreController
+  m_Name: GameplayController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
