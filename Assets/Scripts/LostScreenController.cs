@@ -24,4 +24,8 @@ public class LostScreenController : MonoBehaviour
     public void PlayAgain(){
         SceneManager.LoadScene("Gameplay");
     }
+
+    public void Menu(){
+        SceneManager.LoadScene("MainMenu");
+    }
 }
