@@ -15,6 +15,10 @@ public class UIUpdater : MonoBehaviour
         hpImage.sprite = hpState[health];
     }
 
+    public void OverdriveHP(int health){
+        hpImage.sprite = overdrive[health-1];
+    }
+
     public void ScoreUpdate(int score){
         scoreText.text = score.ToString();
     }

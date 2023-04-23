@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    int health = 3;
+    public int health = 3;
+    bool isOvedrive = false;
     UIUpdater uIUpdater;
     ScoreController scoreController;
     // Start is called before the first frame update
@@ -17,19 +18,25 @@ public class Health : MonoBehaviour
     }
 
     public void AddHealth(){
-        if(health < 3){
-            health++;
-            uIUpdater.HPUpdate(health);
-        }
+        health++;
+        uIUpdater.HPUpdate(health);
     }
     public void GetDamage(){
-        if(health > 0){
+        if(health > 0 && !isOvedrive){
             health--;
             uIUpdater.HPUpdate(health);
         }
-        if(health <= 0){
+        if(health <= 0 && !isOvedrive){
             PlayerPrefs.SetInt("CurrentScore",scoreController.GetScore());
             SceneManager.LoadScene("LostScreen");
         }
+    }
+
+    IEnumerator Overdrive(){
+        isOvedrive = true;
+        uIUpdater.OverdriveHP(health);
+        yield return new WaitForSeconds(4f);
+        isOvedrive = false;
+        uIUpdater.HPUpdate(health);
     }
 }

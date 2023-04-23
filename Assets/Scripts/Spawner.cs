@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    // Objects to spawn
     [SerializeField] GameObject enemyObject;
     [SerializeField] GameObject[] powerUps;
+    // Timers
     float timeForEnemy = 3f;
     float timeForPowerUp = 5f;
+    // Score controller for difficulty
+    ScoreController scoreController;
+    int score;
     
     private void Start() {
+        scoreController = FindObjectOfType<ScoreController>();
+        score = scoreController.GetScore();
         StartCoroutine("SpawnAsteroid");
         StartCoroutine("SpawnPowerUp");
     }
@@ -30,13 +37,15 @@ public class Spawner : MonoBehaviour
             newEnemyObjectRb.velocity = new Vector2(0f,-3f);
             // Set the spin
             newEnemyObjectRb.angularVelocity = 10;
-            // Wait for second and go again
+            // Wait for x second and go again
             yield return new WaitForSeconds(timeForEnemy);
         }
     }
 
     IEnumerator SpawnPowerUp(){
         while(true){
+            // Wait for x second go again
+            yield return new WaitForSeconds(timeForPowerUp);
             // Create power up object
             GameObject newPowerUpObject = Instantiate(powerUps[PowerUpPicker()]);
             // Set random X posiotion beetween -4 and 4
@@ -51,7 +60,6 @@ public class Spawner : MonoBehaviour
             newPowerUpObjectRb.velocity = new Vector2(0f,-3f);
             // Set the spin
             newPowerUpObjectRb.angularVelocity = 10;
-            yield return new WaitForSeconds(timeForPowerUp);
         }
     }
 
@@ -61,10 +69,10 @@ public class Spawner : MonoBehaviour
         switch (randomPowerUp){
             case <= 0.15f:
                 return 0; // 15% Blast
-            case <= 0.25f:
-                return 1; // 10% Shield
-            case <= 0.4f:
-                return 2; // 15% AmmoBox
+            case <= 0.30f:
+                return 1; // 15% Overdrive
+            case <= 0.40f:
+                return 2; // 10% AmmoBox
             case <= 0.65f:
                 return 3; // 25% Slowtime
             default:

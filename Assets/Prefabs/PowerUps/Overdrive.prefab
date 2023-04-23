@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6018237205794577001}
   - component: {fileID: 5742291922804073152}
   m_Layer: 9
-  m_Name: Shield
-  m_TagString: powerup
+  m_Name: Overdrive
+  m_TagString: overdrive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3719194671728163412
 SpriteRenderer:
