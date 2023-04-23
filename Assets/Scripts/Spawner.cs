@@ -73,10 +73,10 @@ public class Spawner : MonoBehaviour
                 return 0; // 15% Blast
             case <= 0.30f:
                 return 1; // 15% Overdrive
-            case <= 0.40f:
-                return 2; // 10% SlowTime
+            case <= 0.45f:
+                return 2; // 15% SlowTime
             default:
-                return 3; // 35% BonusHP
+                return 3; // 55% BonusHP
         }
     }
 }
