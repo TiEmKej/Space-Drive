@@ -46,23 +46,25 @@ public class Spawner : MonoBehaviour
         while(true){
             // Wait for x second go again
             yield return new WaitForSeconds(timeForPowerUp);
-            // Create power up object
-            GameObject newPowerUpObject = Instantiate(powerUps[PowerUpPicker()]);
-            // Set random X posiotion beetween -4 and 4
-            float newX = Random.Range(-4f, 4f);
-            // Move it in hierarchy as a child of spawner
-            newPowerUpObject.transform.parent = this.gameObject.transform;
-            // Put object above the screen
-            newPowerUpObject.transform.Translate(newX,10f,0f);
-            // Grab the rigidbody
-            Rigidbody2D newPowerUpObjectRb = newPowerUpObject.GetComponent<Rigidbody2D>();
-            // Set the velocity
-            newPowerUpObjectRb.velocity = new Vector2(0f,-3f);
-            // Set the spin
-            newPowerUpObjectRb.angularVelocity = 10;
+            if (Random.Range(0f,1f)>0.25f){ //75% chance to spawn powerup
+                // Create power up object
+                GameObject newPowerUpObject = Instantiate(powerUps[PowerUpPicker()]);
+                // Set random X posiotion beetween -4 and 4
+                float newX = Random.Range(-4f, 4f);
+                // Move it in hierarchy as a child of spawner
+                newPowerUpObject.transform.parent = this.gameObject.transform;
+                // Put object above the screen
+                newPowerUpObject.transform.Translate(newX,10f,0f);
+                // Grab the rigidbody
+                Rigidbody2D newPowerUpObjectRb = newPowerUpObject.GetComponent<Rigidbody2D>();
+                // Set the velocity
+                newPowerUpObjectRb.velocity = new Vector2(0f,-3f);
+                // Set the spin
+                newPowerUpObjectRb.angularVelocity = 10;
+            } 
         }
     }
-
+    //TODO: Change the randomized value for powerup spawn
     private int PowerUpPicker(){
         float randomPowerUp = Random.Range(0f,1f);
         // Choosing random power up
@@ -72,11 +74,9 @@ public class Spawner : MonoBehaviour
             case <= 0.30f:
                 return 1; // 15% Overdrive
             case <= 0.40f:
-                return 2; // 10% AmmoBox
-            case <= 0.65f:
-                return 3; // 25% Slowtime
+                return 2; // 10% SlowTime
             default:
-                return 4; // 35% BonusHP
+                return 3; // 35% BonusHP
         }
     }
 }
