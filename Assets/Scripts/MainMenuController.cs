@@ -9,4 +9,12 @@ public class MainMenuController : MonoBehaviour
     public void PlayButton(){
         SceneManager.LoadScene("Gameplay");
     }
+
+    public void SettingsButton(){
+        SceneManager.LoadScene("Settings");
+    }
+
+    public void InfoButton(){
+        SceneManager.LoadScene("Info");
+    }
 }
