@@ -968,6 +968,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 8081906465945186177, guid: 377ee3412173544eb814e99cfbce9862, type: 3}
+  powerUps:
+  - {fileID: 7947574835952669652, guid: 4f37ec84ebb0f6a45a92a0836fdfa7e3, type: 3}
+  - {fileID: 7786781571695383839, guid: 8d3f6ebec57e976439e65711a2b97ba9, type: 3}
+  - {fileID: 7947574835952669652, guid: 4f37ec84ebb0f6a45a92a0836fdfa7e3, type: 3}
+  - {fileID: 8612913442794456685, guid: dc76c5999c98a99488efcf816561d58f, type: 3}
+  - {fileID: 7947574835952669652, guid: 4f37ec84ebb0f6a45a92a0836fdfa7e3, type: 3}
 --- !u!1 &1859498585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1351,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124048121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
