@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerCollider : MonoBehaviour
 {
     Health playerhp;
+    PowerUpController powerUpController;
 
     void Start()
     {
         playerhp = GetComponent<Health>();
+        powerUpController = FindObjectOfType<PowerUpController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -19,23 +21,19 @@ public class PlayerCollider : MonoBehaviour
                 Destroy(collision.gameObject);
                 return;
             case "bonushp":
-                if(playerhp.health < 3){
-                    playerhp.AddHealth();
-                    Destroy(collision.gameObject);
-                }
+                powerUpController.BonusHP(collision);
                 return;
             case "slowtime":
-                Destroy(collision.gameObject);
+                powerUpController.SlowTime(collision);
                 return;
             case "blast":
-                Destroy(collision.gameObject);
+                powerUpController.Blast(collision);
                 return;
             case "overdrive":
-                playerhp.StartCoroutine("Overdrive");
-                Destroy(collision.gameObject);
+                powerUpController.Overdrive(collision);
                 return;
             case "ammobox":
-                Destroy(collision.gameObject);
+                powerUpController.AmmoBox(collision);
                 return;
         }
     }

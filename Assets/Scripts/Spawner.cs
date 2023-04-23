@@ -17,8 +17,8 @@ public class Spawner : MonoBehaviour
     private void Start() {
         scoreController = FindObjectOfType<ScoreController>();
         score = scoreController.GetScore();
-        StartCoroutine("SpawnAsteroid");
-        StartCoroutine("SpawnPowerUp");
+        StartCoroutine(SpawnAsteroid());
+        StartCoroutine(SpawnPowerUp());
     }
 
     IEnumerator SpawnAsteroid(){

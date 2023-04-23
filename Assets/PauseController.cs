@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
@@ -16,5 +17,10 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 1f;
         normalCanvas.enabled = true;
         pausedCanvas.enabled = false;
+    }
+
+    public void GoToMenu(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
