@@ -7,18 +7,23 @@ public class Spawner : MonoBehaviour
     // Objects to spawn
     [SerializeField] GameObject enemyObject;
     [SerializeField] GameObject[] powerUps;
+
+    [SerializeField] float enemyObjectVelocityY = -3f;
     // Timers
-    float timeForEnemy = 3f;
-    float timeForPowerUp = 5f;
+    [SerializeField] float timeForEnemy = 3f;
+    float timeForPowerUp = 7.5f;
     // Score controller for difficulty
     ScoreController scoreController;
     int score;
     
     private void Start() {
         scoreController = FindObjectOfType<ScoreController>();
-        score = scoreController.GetScore();
         StartCoroutine(SpawnAsteroid());
         StartCoroutine(SpawnPowerUp());
+    }
+
+    private void Update() {
+        score = scoreController.GetScore();
     }
 
     IEnumerator SpawnAsteroid(){
@@ -26,17 +31,30 @@ public class Spawner : MonoBehaviour
             // Create new enemy object
             GameObject newEnemyObject = Instantiate(enemyObject);
             // Set random X posiotion beetween -4 and 4
-            float newX = Random.Range(-4f, 4f);
+            float newX = Random.Range(-3.5f, 3.5f);
             // Move it in hierarchy as a child of spawner
             newEnemyObject.transform.parent = this.gameObject.transform;
             // Put object above the screen
             newEnemyObject.transform.Translate(newX,10f,0f);
+            // Randomize size
+            float newScale = Random.Range(0.8f,1.2f);
+            newEnemyObject.transform.localScale = new Vector3(newScale, newScale, 1f);
             // Grab the rigidbody
             Rigidbody2D newEnemyObjectRb = newEnemyObject.GetComponent<Rigidbody2D>();
+            //Change Velocity
+            if (enemyObjectVelocityY - 0.2f > -20f)
+            {
+                enemyObjectVelocityY = -3f - (score * 0.2f);
+            }
             // Set the velocity
-            newEnemyObjectRb.velocity = new Vector2(0f,-3f);
+            newEnemyObjectRb.velocity = new Vector2(0f,enemyObjectVelocityY);
             // Set the spin
             newEnemyObjectRb.angularVelocity = 10;
+            //Change spawn time
+            if(timeForEnemy > 0.6f)
+            {
+                timeForEnemy -= 0.06f;
+            }
             // Wait for x second and go again
             yield return new WaitForSeconds(timeForEnemy);
         }
@@ -46,11 +64,11 @@ public class Spawner : MonoBehaviour
         while(true){
             // Wait for x second go again
             yield return new WaitForSeconds(timeForPowerUp);
-            if (Random.Range(0f,1f)>0.25f){ //75% chance to spawn powerup
+            if (Random.Range(0f,1f)>0.5f){ //50% chance to spawn powerup
                 // Create power up object
                 GameObject newPowerUpObject = Instantiate(powerUps[PowerUpPicker()]);
                 // Set random X posiotion beetween -4 and 4
-                float newX = Random.Range(-4f, 4f);
+                float newX = Random.Range(-3.5f, 3.5f);
                 // Move it in hierarchy as a child of spawner
                 newPowerUpObject.transform.parent = this.gameObject.transform;
                 // Put object above the screen
@@ -64,7 +82,6 @@ public class Spawner : MonoBehaviour
             } 
         }
     }
-    //TODO: Change the randomized value for powerup spawn
     private int PowerUpPicker(){
         float randomPowerUp = Random.Range(0f,1f);
         // Choosing random power up

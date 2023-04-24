@@ -1420,6 +1420,8 @@ MonoBehaviour:
   - {fileID: 7786781571695383839, guid: 8d3f6ebec57e976439e65711a2b97ba9, type: 3}
   - {fileID: 8612913442794456685, guid: dc76c5999c98a99488efcf816561d58f, type: 3}
   - {fileID: 7947574835952669652, guid: 4f37ec84ebb0f6a45a92a0836fdfa7e3, type: 3}
+  enemyObjectVelocityYDiff: 0
+  timeForEnemyDiff: 0
 --- !u!1 &1846911173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,8 +1787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013fa0e5fc6cc22428a301f2ad0bca5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpNormal: {fileID: 0}
-  powerUpBlast: {fileID: 0}
+  powerUpNormal: {fileID: 8300000, guid: a479b47fa9ea8fa4c8c0d6571b900fe9, type: 3}
+  powerUpBlast: {fileID: 8300000, guid: f726a854e84f6804dbb759b14a425d0c, type: 3}
 --- !u!82 &1859498592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2327,7 +2329,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124048121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
