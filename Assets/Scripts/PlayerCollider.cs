@@ -6,6 +6,7 @@ public class PlayerCollider : MonoBehaviour
 {
     Health playerhp;
     PowerUpController powerUpController;
+    [SerializeField] GameObject hitSoundAudio;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerCollider : MonoBehaviour
         //Check collider tag
         switch (collision.tag){
             case "enemyobject":
+                PlayDamageSound();
                 playerhp.GetDamage();
                 Destroy(collision.gameObject);
                 return;
@@ -33,6 +35,10 @@ public class PlayerCollider : MonoBehaviour
                 powerUpController.Overdrive(collision);
                 return;
         }
+    }
+
+    private void PlayDamageSound(){
+        Instantiate(hitSoundAudio);
     }
 
 }
