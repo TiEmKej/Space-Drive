@@ -32,9 +32,6 @@ public class PlayerCollider : MonoBehaviour
             case "overdrive":
                 powerUpController.Overdrive(collision);
                 return;
-            case "ammobox":
-                powerUpController.AmmoBox(collision);
-                return;
         }
     }
 

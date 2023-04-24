@@ -25,10 +25,11 @@ public class PowerUpController : MonoBehaviour
         Destroy(powerUp.gameObject);
     }
     public void Blast(Collider2D powerUp){
-
-    }
-    public void AmmoBox(Collider2D powerUp){
-
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("enemyobject");
+        foreach(GameObject enemy in enemyObjects){
+            Destroy(enemy.gameObject);
+        }
+        Destroy(powerUp.gameObject);
     }
 
     IEnumerator SlowTimeCoroutine(){

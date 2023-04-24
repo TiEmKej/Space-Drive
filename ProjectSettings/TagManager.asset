@@ -12,6 +12,7 @@ TagManager:
   - blast
   - ammobox
   - overdrive
+  - gamesettings
   layers:
   - Default
   - TransparentFX

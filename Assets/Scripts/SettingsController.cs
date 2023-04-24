@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsController : MonoBehaviour
 {
@@ -12,27 +13,36 @@ public class SettingsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameSettings = FindObjectOfType<GameSettings>();
-        if(PlayerPrefs.HasKey("masterValue")){
-            masterVolume.value = PlayerPrefs.GetFloat("masterValue");
-            musicVolume.value = PlayerPrefs.GetFloat("musicValue");
-            effectsVolume.value = PlayerPrefs.GetFloat("effectsValue");
+        if(PlayerPrefs.HasKey("masterVolume")){
+            masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+            musicVolume.value = PlayerPrefs.GetFloat("musicVolume");
+            effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume");
         }
     }
 
     public void MasterVolumeChange(){
-        PlayerPrefs.SetFloat("masterValue", masterVolume.value);
-        Debug.Log(PlayerPrefs.GetFloat("masterValue"));
+        FindGameSettings();
+        PlayerPrefs.SetFloat("masterVolume", masterVolume.value);
+        gameSettings.UpdateSoundVolume();
     }
 
     public void MusicVolumeChange(){
-        PlayerPrefs.SetFloat("musicValue", musicVolume.value);
-        Debug.Log(PlayerPrefs.GetFloat("musicValue"));
+        FindGameSettings();
+        PlayerPrefs.SetFloat("musicVolume", musicVolume.value);
+        gameSettings.UpdateSoundVolume();
     }
 
     public void EffectsVolumeChange(){
-        PlayerPrefs.SetFloat("effectsValue", effectsVolume.value);
-        Debug.Log(PlayerPrefs.GetFloat("effectsValue"));
+        FindGameSettings();
+        PlayerPrefs.SetFloat("effectsVolume", effectsVolume.value);
+        gameSettings.UpdateSoundVolume();
+    }
+
+    public void BackButton(){
+        SceneManager.LoadScene("MainMenu");
     }
     
+    private void FindGameSettings(){
+        gameSettings = FindObjectOfType<GameSettings>();
+    }
 }
