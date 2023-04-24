@@ -21,25 +21,18 @@ public class SettingsController : MonoBehaviour
     }
 
     public void MasterVolumeChange(){
-        Debug.Log(masterVolume.value);
         PlayerPrefs.SetFloat("masterValue", masterVolume.value);
-        OnValueChange();
+        Debug.Log(PlayerPrefs.GetFloat("masterValue"));
     }
 
     public void MusicVolumeChange(){
-        Debug.Log(musicVolume.value);
         PlayerPrefs.SetFloat("musicValue", musicVolume.value);
-        OnValueChange();
+        Debug.Log(PlayerPrefs.GetFloat("musicValue"));
     }
 
     public void EffectsVolumeChange(){
-        Debug.Log(effectsVolume.value);
         PlayerPrefs.SetFloat("effectsValue", effectsVolume.value);
-        OnValueChange();
-    }
-
-    public void OnValueChange(){
-        gameSettings.SetBackgroundMusicVolume();
+        Debug.Log(PlayerPrefs.GetFloat("effectsValue"));
     }
     
 }

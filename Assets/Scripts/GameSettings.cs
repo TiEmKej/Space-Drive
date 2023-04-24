@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    [SerializeField] AudioSource backgroundMusic;
-    float masterVolume = 1f;
-    float musicVolume = 1f;
-    float effectsVolume = 1f;
+    float[] soundVolumes = {1f,1f,1f}; //[0] master, [1] music, [2] effects
     void Awake()
     {
         GameSettings[] objs = GameObject.FindObjectsOfType<GameSettings>();
@@ -23,21 +20,19 @@ public class GameSettings : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 120;
-        LoadSoundSettings();
+        LoadVolumeFromPrefs();
     }
 
-    public void SetBackgroundMusicVolume()
-    {
-        backgroundMusic.volume = 0.5f * masterVolume * musicVolume;
-    }
-
-    public void LoadSoundSettings()
+    private void LoadVolumeFromPrefs()
     {
         if(PlayerPrefs.HasKey("masterVolume")){
-            masterVolume = PlayerPrefs.GetFloat("masterVolume")/10;
-            musicVolume = PlayerPrefs.GetFloat("musicVolume")/10;
-            effectsVolume = PlayerPrefs.GetFloat("effectsVolume")/10;
+            soundVolumes[0] = PlayerPrefs.GetFloat("masterVolume");
         }
-        SetBackgroundMusicVolume();
+        if(PlayerPrefs.HasKey("musicVolume")){
+            soundVolumes[1] = PlayerPrefs.GetFloat("musicVolume");
+        }
+        if(PlayerPrefs.HasKey("effectsVolume")){
+            soundVolumes[2] = PlayerPrefs.GetFloat("effectsVolume");
+        }
     }
 }
