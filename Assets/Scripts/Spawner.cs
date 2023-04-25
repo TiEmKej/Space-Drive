@@ -42,18 +42,18 @@ public class Spawner : MonoBehaviour
             // Grab the rigidbody
             Rigidbody2D newEnemyObjectRb = newEnemyObject.GetComponent<Rigidbody2D>();
             //Change Velocity
-            if (enemyObjectVelocityY - 0.2f > -20f)
+            if (enemyObjectVelocityY - 0.08f > -20f)
             {
-                enemyObjectVelocityY = -3f - (score * 0.2f);
+                enemyObjectVelocityY = -2f - (score * 0.08f);
             }
             // Set the velocity
             newEnemyObjectRb.velocity = new Vector2(0f,enemyObjectVelocityY);
             // Set the spin
             newEnemyObjectRb.angularVelocity = 10;
             //Change spawn time
-            if(timeForEnemy > 0.6f)
+            if(timeForEnemy > 0.4f)
             {
-                timeForEnemy -= 0.06f;
+                timeForEnemy -= 0.025f;
             }
             // Wait for x second and go again
             yield return new WaitForSeconds(timeForEnemy);

@@ -14,8 +14,10 @@ public class LostScreenController : MonoBehaviour
         int highScore = PlayerPrefs.GetInt("HighScore");
         if (currentScore > highScore){
             PlayerPrefs.SetInt("HighScore", currentScore);
+            scoreText.color = Color.red;
             scoreText.text = "New Highscore!\n"+currentScore;
         }else{
+            scoreText.color = Color.white;
             scoreText.text = "Score: "+currentScore+"\nHighscore: "+highScore;
         }
         PlayerPrefs.SetInt("CurrentScore", 0);

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class Movement : MonoBehaviour
 {
     Rigidbody2D playerrb;
-    float movementSpeed = 5f;
+    float movementSpeed = 7f;
     void OnEnable() {
         EnhancedTouchSupport.Enable();  
     }
