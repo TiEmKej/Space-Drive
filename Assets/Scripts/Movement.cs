@@ -5,12 +5,14 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class Movement : MonoBehaviour
 {
     Rigidbody2D playerrb;
+    ScoreController scoreController;
     float movementSpeed = 7f;
     void OnEnable() {
         EnhancedTouchSupport.Enable();  
     }
     void Start()
     {
+        scoreController = FindObjectOfType<ScoreController>();
         playerrb = GetComponent<Rigidbody2D>();
     }
 

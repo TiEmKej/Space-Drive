@@ -1465,7 +1465,7 @@ MonoBehaviour:
   - {fileID: 8612913442794456685, guid: dc76c5999c98a99488efcf816561d58f, type: 3}
   - {fileID: 7947574835952669652, guid: 4f37ec84ebb0f6a45a92a0836fdfa7e3, type: 3}
   enemyObjectVelocityY: -3
-  timeForEnemy: 3
+  timeForEnemy: 2
 --- !u!1 &1846911173
 GameObject:
   m_ObjectHideFlags: 0

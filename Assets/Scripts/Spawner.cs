@@ -8,9 +8,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject enemyObject;
     [SerializeField] GameObject[] powerUps;
 
-    [SerializeField] float enemyObjectVelocityY = -3f;
+    [SerializeField] float enemyObjectVelocityY = -5f;
     // Timers
-    [SerializeField] float timeForEnemy = 3f;
+    [SerializeField] float timeForEnemy = 2f;
     float timeForPowerUp = 7.5f;
     // Score controller for difficulty
     ScoreController scoreController;
@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     
     private void Start() {
         scoreController = FindObjectOfType<ScoreController>();
-        StartCoroutine(SpawnAsteroid());
+        StartCoroutine(SpawnEnemyObject());
         StartCoroutine(SpawnPowerUp());
     }
 
@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         score = scoreController.GetScore();
     }
 
-    IEnumerator SpawnAsteroid(){
+    IEnumerator SpawnEnemyObject(){
         while(true){
             // Create new enemy object
             GameObject newEnemyObject = Instantiate(enemyObject);
@@ -44,17 +44,20 @@ public class Spawner : MonoBehaviour
             //Change Velocity
             if (enemyObjectVelocityY - 0.08f > -20f)
             {
-                enemyObjectVelocityY = -2f - (score * 0.08f);
+                enemyObjectVelocityY = -5f - (score * 0.08f);
             }
             // Set the velocity
             newEnemyObjectRb.velocity = new Vector2(0f,enemyObjectVelocityY);
             // Set the spin
             newEnemyObjectRb.angularVelocity = 10;
             //Change spawn time
-            if(timeForEnemy > 0.4f)
+            if(timeForEnemy > 1f)
             {
                 timeForEnemy -= 0.025f;
+            }else if(timeForEnemy > 0.75f){
+                timeForEnemy -= 0.01f;
             }
+            Debug.Log("Spawned Enemy" + Time.realtimeSinceStartupAsDouble);
             // Wait for x second and go again
             yield return new WaitForSeconds(timeForEnemy);
         }
