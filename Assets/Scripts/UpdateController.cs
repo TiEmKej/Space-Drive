@@ -7,9 +7,10 @@ using Google.Play.Common;
 
 public class UpdateController : MonoBehaviour
 {
-    AppUpdateManager appUpdateManager ;
+    AppUpdateManager appUpdateManager;
     void Start()
     {
+        appUpdateManager = new AppUpdateManager();
         StartCoroutine(CheckForUpdate());
     }
 
