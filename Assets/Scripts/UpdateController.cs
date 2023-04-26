@@ -8,8 +8,10 @@ using Google.Play.Common;
 public class UpdateController : MonoBehaviour
 {
     AppUpdateManager appUpdateManager;
+    [SerializeField] TMP_Text versionText;
     void Start()
     {
+        versionText.text = Application.version + "V";
         appUpdateManager = new AppUpdateManager();
         StartCoroutine(CheckForUpdate());
     }
