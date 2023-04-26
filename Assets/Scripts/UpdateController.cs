@@ -11,7 +11,7 @@ public class UpdateController : MonoBehaviour
     [SerializeField] TMP_Text versionText;
     void Start()
     {
-        versionText.text = Application.version + "V";
+        versionText.text = "Current: "+Application.version + "V";
         appUpdateManager = new AppUpdateManager();
         StartCoroutine(CheckForUpdate());
     }
@@ -29,6 +29,9 @@ public class UpdateController : MonoBehaviour
             // IsUpdateTypeAllowed(), etc. and decide whether to ask the user
             // to start an in-app update.
             var appUpdateOptions = AppUpdateOptions.ImmediateAppUpdateOptions();
+            if(appUpdateInfoResult.UpdateAvailability == UpdateAvailability.UpdateAvailable){
+                versionText.text = "Update Avaible!\n"+versionText.text;
+            }
             StartCoroutine(StartImmediateUpdate(appUpdateInfoResult, appUpdateOptions));
         }
     }

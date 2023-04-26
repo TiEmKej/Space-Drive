@@ -8,9 +8,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject enemyObject;
     [SerializeField] GameObject[] powerUps;
 
-    [SerializeField] float enemyObjectVelocityY = -5f;
+    [SerializeField] float enemyObjectVelocityY = -7f;
     // Timers
-    [SerializeField] float timeForEnemy = 2f;
+    [SerializeField] float timeForEnemy = 1.75f;
     float timeForPowerUp = 7.5f;
     // Score controller for difficulty
     ScoreController scoreController;
@@ -42,9 +42,9 @@ public class Spawner : MonoBehaviour
             // Grab the rigidbody
             Rigidbody2D newEnemyObjectRb = newEnemyObject.GetComponent<Rigidbody2D>();
             //Change Velocity
-            if (enemyObjectVelocityY - 0.08f > -20f)
+            if (enemyObjectVelocityY - 0.07f > -20f)
             {
-                enemyObjectVelocityY = -5f - (score * 0.08f);
+                enemyObjectVelocityY = -7f - (score * 0.07f);
             }
             // Set the velocity
             newEnemyObjectRb.velocity = new Vector2(0f,enemyObjectVelocityY);
@@ -53,9 +53,11 @@ public class Spawner : MonoBehaviour
             //Change spawn time
             if(timeForEnemy > 1f)
             {
-                timeForEnemy -= 0.025f;
-            }else if(timeForEnemy > 0.75f){
-                timeForEnemy -= 0.01f;
+                timeForEnemy -= 0.021f;
+            }else if(timeForEnemy > 0.8f){
+                timeForEnemy -= 0.017f;
+            }else if(timeForEnemy > 0.6f){
+                timeForEnemy -= 0.005f;
             }
             Debug.Log("Spawned Enemy" + Time.realtimeSinceStartupAsDouble);
             // Wait for x second and go again

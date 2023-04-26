@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     Rigidbody2D playerrb;
     ScoreController scoreController;
-    float movementSpeed = 7f;
+    float movementSpeed = 8f;
     void OnEnable() {
         EnhancedTouchSupport.Enable();  
     }

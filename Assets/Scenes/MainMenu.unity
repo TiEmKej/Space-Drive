@@ -1224,7 +1224,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version
+  m_text: 'Update Avaible!
+
+    Current: 1.0V'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 365bb81b7c6ad4a5288b6243289f7f34, type: 2}
   m_sharedMaterial: {fileID: 7527362614445184732, guid: 365bb81b7c6ad4a5288b6243289f7f34, type: 2}
