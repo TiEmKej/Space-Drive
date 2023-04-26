@@ -40,4 +40,6 @@ public class UpdateController : MonoBehaviour
             appUpdateOptions);
         yield return startUpdateRequest;
     }
+
+    //Nie wiem co sie tutaj dzieje ale buja
 }

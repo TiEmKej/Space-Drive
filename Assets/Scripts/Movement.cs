@@ -18,10 +18,6 @@ public class Movement : MonoBehaviour
         TouchInput();   
     }
 
-    public void Move(InputAction.CallbackContext context){
-        playerrb.velocity = new Vector2(context.ReadValue<Vector2>().x * movementSpeed, 0);
-    }
-
     public void TouchInput(){
         //Get all finger touches
         var fingers = UnityEngine.InputSystem.EnhancedTouch.Touch.activeFingers;
@@ -34,6 +30,9 @@ public class Movement : MonoBehaviour
         var lastTouch = fingers[fingers.Count-1].lastTouch;
         //Get touch position
         Vector2 position = lastTouch.screenPosition;
+        if (position.y > Screen.height * 0.75f){
+            return;
+        }
         //Make the position correct - left side of screen will have negative x
         position -= new Vector2(Screen.width/2,0);
         if (position.x > 0){
