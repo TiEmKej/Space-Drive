@@ -18,7 +18,7 @@ public class PlayerCollider : MonoBehaviour
         //Check collider tag
         switch (collision.tag){
             case "enemyobject":
-                PlayDamageSound();
+                Instantiate(hitSoundAudio);
                 playerhp.GetDamage();
                 Destroy(collision.gameObject);
                 return;
@@ -36,9 +36,4 @@ public class PlayerCollider : MonoBehaviour
                 return;
         }
     }
-
-    private void PlayDamageSound(){
-        Instantiate(hitSoundAudio);
-    }
-
 }

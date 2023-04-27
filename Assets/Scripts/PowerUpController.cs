@@ -8,9 +8,11 @@ public class PowerUpController : MonoBehaviour
     float timeScaleModifier = 0.5f;
     Health playerHP;
     AudioSource powerUpSound;
+    ScoreController scoreController;
     [SerializeField] AudioClip powerUpNormal;
     [SerializeField] AudioClip powerUpBlast;
     private void Start() {
+        scoreController = FindObjectOfType<ScoreController>();
         playerHP = FindObjectOfType<Health>();
         powerUpSound = GetComponent<AudioSource>();
         powerUpSound.volume = 1f * (PlayerPrefs.GetFloat("masterVolume")/10) * (PlayerPrefs.GetFloat("effectsVolume")/10);
@@ -34,6 +36,7 @@ public class PowerUpController : MonoBehaviour
     }
     public void Blast(Collider2D powerUp){
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("enemyobject");
+        scoreController.ChangeScore(enemyObjects.Length);
         foreach(GameObject enemy in enemyObjects){
             Destroy(enemy.gameObject);
         }
