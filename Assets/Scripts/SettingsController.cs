@@ -15,8 +15,18 @@ public class SettingsController : MonoBehaviour
     {
         if(PlayerPrefs.HasKey("masterVolume")){
             masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+        }else{
+            masterVolume.value = 5f;
+        }
+        if(PlayerPrefs.HasKey("musicVolume")){
             musicVolume.value = PlayerPrefs.GetFloat("musicVolume");
+        }else{
+            musicVolume.value = 5f;
+        }
+        if(PlayerPrefs.HasKey("effectsVolume")){
             effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume");
+        }else{
+            effectsVolume.value = 5f;
         }
     }
 
