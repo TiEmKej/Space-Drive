@@ -13,6 +13,7 @@ TagManager:
   - ammobox
   - overdrive
   - gamesettings
+  - overdriveshield
   layers:
   - Default
   - TransparentFX

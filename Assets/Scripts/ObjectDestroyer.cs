@@ -10,9 +10,7 @@ public class ObjectDestroyer : MonoBehaviour
         scoreController = FindObjectOfType<ScoreController>();    
     }
     private void OnTriggerExit2D(Collider2D collider) {
-        if (collider.tag == "enemyobject"){
-            Destroy(collider.gameObject);
-        }
+        Destroy(collider.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {

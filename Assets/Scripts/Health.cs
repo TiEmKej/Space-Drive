@@ -33,9 +33,12 @@ public class Health : MonoBehaviour
     }
 
     IEnumerator Overdrive(){
+        SpriteRenderer shieldSprite = GameObject.FindGameObjectWithTag("overdriveshield").GetComponent<SpriteRenderer>();
+        shieldSprite.enabled = true;
         isOvedrive = true;
         uIUpdater.OverdriveHP(health);
         yield return new WaitForSeconds(4f);
+        shieldSprite.enabled = false;
         isOvedrive = false;
         uIUpdater.HPUpdate(health);
     }
